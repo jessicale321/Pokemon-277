@@ -4,7 +4,10 @@ public class Entity {
     private int hp;
     private int maxHp;
     
-    public Entity(String n, int mHp){}
+    public Entity(String n, int mHp){
+        name = n;
+        maxHp = mHp;
+    }
     
     public int getHp(){return hp;}
     
