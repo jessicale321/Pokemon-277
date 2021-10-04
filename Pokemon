@@ -1,0 +1,63 @@
+public abstract class Pokemon extends Entity{
+
+    public Pokemon(String n){
+        super(n, 20 + (int)(Math.random() * 5));
+    }
+
+    static final double [][] battleTable = {{1, .5, 2}, {2, 1, .5}, {.5, 2, 1}};
+
+    public abstract String getSpecialMenu();
+
+    public abstract int getNumSpecialMenuItems();
+
+    public abstract String specialAttack(Pokemon p, int move);
+
+    public String getBasicMenu(){
+        return "What do you want to do?\n1. Fight\n2. Use Potion\n3. Throw Pokeball\n4. Run Away";
+    }
+
+    public int getNumBasicMenuItems(){
+
+    }
+
+    public String basicAttack(Pokemon p, int move){
+        if (move == 1){
+            return getName() + " used Slam!";
+        }
+        else if(move == 2){
+            return getName() + " used Tackle!";
+        }
+        else if(move == 3){
+            return getName() + " used Punch!";
+        }
+    }
+
+    public String getAttackMenu(){
+        return ""
+    }
+
+    public int getNumAttackMenuItems();
+
+    public String slam(Pokemon p){
+        int d = (int)(Math.random() * 5);
+        p.takeDamage(d);
+        return p.getName() + " took " + d + "damage.";
+    }
+
+    public String tackle(Pokemon p){
+        int d = (int)(Math.random() * 2) + 1;
+        p.takeDamage(d);
+        return p.getName() + " took " + d + "damage.";
+    }
+
+    public String punch(Pokemon p){
+        int d = (int)(Math.random() * 3) + 1;
+        p.takeDamage(d);
+        return p.getName() + " took " + d + "damage.";
+    }
+
+    public int getType(){
+        return 0
+    }
+
+}
