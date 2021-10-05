@@ -11,7 +11,7 @@ public class Grass_Interface {
 
             @Override
             public int getNumSpecialMenuItems() {
-                return 0;
+                return 3;
             }
 
             @Override
@@ -105,7 +105,7 @@ public class Grass_Interface {
 
             @Override
             public int getNumSpecialMenuItems() {
-                return 0;
+                return 3;
             }
 
             @Override
