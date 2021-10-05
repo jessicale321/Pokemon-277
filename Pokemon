@@ -26,7 +26,9 @@ public abstract class Pokemon extends Entity{
         return "What do you want to do?\n1. Fight\n2. Use Potion\n3. Throw Pokeball\n4. Run Away";
     }
 
-//    public int getNumBasicMenuItems(){}
+    public int getNumBasicMenuItems(){
+        return 3;
+    }
 
     public String basicAttack(Pokemon p, int move){
         if (move == 1){
@@ -45,7 +47,9 @@ public abstract class Pokemon extends Entity{
         return "1. Basic Attack\n2. Special Attack";
     }
 
-//    public int getNumAttackMenuItems(){}
+    public int getNumAttackMenuItems(){
+    return 2;
+    }
 
     public String slam(Pokemon p){
         int d = (int)(Math.random() * 5);
