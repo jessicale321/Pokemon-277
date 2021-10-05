@@ -1,0 +1,6 @@
+abstract class Oddish extends Pokemon{
+    public Oddish(){
+        super("Oddish");
+        type = 2;
+    }
+}
