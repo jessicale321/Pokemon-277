@@ -1,0 +1,8 @@
+abstract class Bulbasaur extends Pokemon{
+
+    public Bulbasaur(){
+        super("Bulbasaur");
+        type = 2;
+    }
+
+}
