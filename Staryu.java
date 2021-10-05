@@ -1,7 +1,7 @@
-abstract class Squirtle extends Pokemon{
+abstract class Stayru extends Pokemon{
 
-    public Squirtle(){
-        super("Squirtle");
+    public Stayru(){
+        super("Stayru");
         type = 1;
     }
 
