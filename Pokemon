@@ -1,11 +1,11 @@
 public abstract class Pokemon extends Entity{
 
-    private int type;
+    protected int type;
     static final double [][] battleTable = {{1, .5, 2}, {2, 1, .5}, {.5, 2, 1}};
 
     public Pokemon(String n){
         super(n, 20 + (int)(Math.random() * 5));
-        if (n.equals("Charmander") || n.equals("Ponyta")){
+        /* if (n.equals("Charmander") || n.equals("Ponyta")){
             type = 0;
         }
         else if(n.equals("Squirtle") || n.equals("Staryu")){
@@ -13,7 +13,7 @@ public abstract class Pokemon extends Entity{
         }
         else if(n.equals("Bulbasuar") || n.equals("Oddish")){
             type = 2;
-        }
+        }*/
     }
 
     public abstract String getSpecialMenu();
@@ -38,6 +38,7 @@ public abstract class Pokemon extends Entity{
         else if(move == 3){
             return getName() + " used Punch!";
         }
+        return getName() + " missed!";
     }
 
     public String getAttackMenu(){
