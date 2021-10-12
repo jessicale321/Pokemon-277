@@ -1,4 +1,4 @@
-public class Trainer { //FIXME
+public class trainer extends Entity{ //FIXME
     private String name; //not listed on UML
     private int money;
     private int potions;
@@ -7,18 +7,24 @@ public class Trainer { //FIXME
 //    private Map map;
 //    private ArrayList<Pokemon> pokemon;
 
-public Trainer(String n, Pokemon p, Map m) { //FIXME
+public trainer(String n, Pokemon p, Map m) { //FIXME
     name = n;
-    //pokemon
+    //pokemon.add(p); //pokemon
     //map
 }
 
 public int getMoney() {
-    return 1; //FIXME
+    return money;
 }
 
 public boolean spendMoney(int amt) {
-    return false;  //FIXME
+    if (money >= amt) {
+        money -= amt;
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 public void receiveMoney(int amt) {
@@ -26,23 +32,33 @@ public void receiveMoney(int amt) {
 }
 
 public boolean hasPotion() {
-    return false; //FIXME
+    if (potions > 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 public void receivePotion() {
-    int x = 1 + 1; //FIXME
+    potions += 1;
 }
 
 public void usePotion(int pokeIndex) {
-    int x = 1 + 1; //FIXME
+    potions -= pokeIndex; //FIXME
 }
 
 public boolean hasPokeball() {
-    return false; //FIXME
+    if (pokeballs > 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 public void receivePokeball() {
-    int x = 1;
+    pokeballs += 1;
 }
 
 public boolean catchPokemon(Pokemon p) {
@@ -70,7 +86,7 @@ public char goWest() {
 }
 
 public int getNumPokemon() {
-    return 1;
+    return pokemon.size();
 }
 
 public void healAllPokemon() {
@@ -78,7 +94,7 @@ public void healAllPokemon() {
 }
 
 public Pokemon getPokemon(int index) {
-    int x = 1;
+    return Pokemon p;
 }
 
 public String getPokemonList() {
@@ -86,7 +102,7 @@ public String getPokemonList() {
 }
 
 public String toString() {
-    return name;
+    return name + " HP: " + "\nMoney: " + "\nPotions: " + "\nPoke Balls: ";
 }
 
 }
