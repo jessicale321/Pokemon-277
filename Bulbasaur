@@ -33,19 +33,19 @@ class Bulbasaur extends Pokemon implements Grass_Interface{
         String atk = "";
         if (p.getType() == 0)
         {
-            int d = (int) (((int) (Math.random() * 2) + 1) * battleTable[getType()][0]);
+            int d = (int) (((int) (Math.random() * 3) + 1) * battleTable[getType()][0]);
             p.takeDamage(d);
             atk = p.getName() + " took " + d + "damage.";
         }
         else if (p.getType() == 1)
         {
-            int d = (int)(((int)(Math.random() * 2) + 1) * battleTable[getType()][1]);
+            int d = (int)(((int)(Math.random() * 3) + 1) * battleTable[getType()][1]);
             p.takeDamage(d);
             atk = p.getName() + " took " + d + "damage.";
         }
         else if (p.getType() == 2)
         {
-            int d = (int)(((int)(Math.random() * 2) + 1) * battleTable[getType()][2]);
+            int d = (int)(((int)(Math.random() * 3) + 1) * battleTable[getType()][2]);
             p.takeDamage(d);
             atk = p.getName() + " took " + d + "damage.";
         }
@@ -57,19 +57,19 @@ class Bulbasaur extends Pokemon implements Grass_Interface{
         String atk = "";
         if (p.getType() == 0)
         {
-            int d = (int)((int)(Math.random() * 2) + 2 * battleTable[getType()][0]);
+            int d = (int)((int)(Math.random() * 3) + 2 * battleTable[getType()][0]);
             p.takeDamage(d);
             atk = p.getName() + " took " + d + "damage.";
         }
         else if (p.getType() == 1)
         {
-            int d = (int)((int)(Math.random() * 2) + 2 * battleTable[getType()][1]);
+            int d = (int)((int)(Math.random() * 3) + 2 * battleTable[getType()][1]);
             p.takeDamage(d);
             atk = p.getName() + " took " + d + "damage.";
         }
         else if (p.getType() == 2)
         {
-            int d = (int)((int)(Math.random() * 2) + 2 * battleTable[getType()][2]);
+            int d = (int)((int)(Math.random() * 3) + 2 * battleTable[getType()][2]);
             p.takeDamage(d);
             atk = p.getName() + " took " + d + "damage.";
         }
@@ -81,19 +81,19 @@ class Bulbasaur extends Pokemon implements Grass_Interface{
         String atk = "";
         if (p.getType() == 0)
         {
-            int d = (int)((int)(Math.random() * 5) * battleTable[getType()][0]);
+            int d = (int)((int)(Math.random() * 6) * battleTable[getType()][0]);
             p.takeDamage(d);
             atk = p.getName() + " took " + d + "damage.";
         }
         else if (p.getType() == 1)
         {
-            int d = (int)((int)(Math.random() * 5) * battleTable[getType()][1]);
+            int d = (int)((int)(Math.random() * 6) * battleTable[getType()][1]);
             p.takeDamage(d);
             atk = p.getName() + " took " + d + "damage.";
         }
         else if (p.getType() == 2)
         {
-            int d = (int)((int)(Math.random() * 5) * battleTable[getType()][2]);
+            int d = (int)((int)(Math.random() * 6) * battleTable[getType()][2]);
             p.takeDamage(d);
             atk = p.getName() + " took " + d + "damage.";
         }
