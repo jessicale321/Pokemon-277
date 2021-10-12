@@ -10,6 +10,10 @@ public class Map {
 
     public Map() {
         map = new char[5][5];
+        revealed = new boolean[5][5]; 
+        for(int i = 0; i < revealed.length; i++)
+            for(int j = 0; j < revealed[i].length; j++)
+                 revealed[i][j] = false;
     }
 
     public void loadMap() {
