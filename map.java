@@ -19,7 +19,8 @@ public class Map {
     public void loadMap() {
         ArrayList<ArrayList<Character>> collection = new ArrayList<ArrayList<Character>>();
         try {
-            Scanner s = new Scanner(new File("C:\\Users\\Yisacor\\OneDrive\\Desktop\\File\\cecs 277\\Pokmon\\src\\pokemon\\Area1.txt"));
+            String area = "Area1.txt";
+            Scanner s = new Scanner(new File(area));
             while (s.hasNextLine()) {
                 String data = s.nextLine(); //reading data line by line from file
                 data = data.replaceAll("\\s", "");
