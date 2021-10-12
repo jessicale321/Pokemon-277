@@ -43,7 +43,14 @@ public class Map {
         }
         return listOfchars;
     }
-    //public char getCharAtLoc(Point p){return 'c';}
+    public char getCharAtLoc(Point p){
+        p.x = 1;
+        p.y = 1;
+        if (p.x <0 || p.y < 0 || p.x > 5 || p.y > 5 ){
+            return 'x';
+        }
+        return map[p.x][p.y];
+    }
 
     //public maptoString(Point p){}
     
