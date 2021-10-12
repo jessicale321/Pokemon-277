@@ -105,6 +105,8 @@ public class Map {
     }
 
     //public void reveal(Point p){}
-    // public void removeCharAtLoc(Point p){}
+    public void removeCharAtLoc(Point p){
+         map[p.x][p.y] = 'x';
+    }
 }
 
