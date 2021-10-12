@@ -5,10 +5,11 @@ import java.util.Scanner;
 
 public class Map {
 
-    private char[][] map = new char[5][5];
+    private char[][] map;
     private boolean[][] revealed;
 
     public Map() {
+        map = new char[5][5];
     }
 
     public void loadMap() {
