@@ -33,14 +33,7 @@ public class Map {
             for (int col = 0; col < map.length; col++) {
                 map[row][col] = collection.get(row).get(col);
             }
-        }
-
-//        for (int i = 0; i < map.length; i++) {
-//            for (int j = 0; j < map[i].length; j++) {
-//                 System.out.print(map[i][j] + " ");
-//         }
-//         System.out.println();
-//      }             
+        }            
     }
     public ArrayList<Character> toChar(String data) {
         ArrayList<Character> listOfchars = new ArrayList<>();
