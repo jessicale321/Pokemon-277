@@ -56,7 +56,32 @@ public class Map {
         return map[p.x][p.y];
     }
 
-    //public String maptoString(Point p){}
+    public String maptoString(Point p) {
+        findStart();
+        Point start = findStart();
+        int x = start.x;
+        int y = start.y;
+
+        for (int i = 0; i < initialMap.length; i++) {
+            for (int j = 0; j < initialMap[i].length; j++) {
+                initialMap[i][j] = 'x';
+            }
+        }
+        initialMap[x][y] = '*';
+        reveal(p);
+
+        String lineSeparator = System.lineSeparator();
+        StringBuilder sb = new StringBuilder();
+
+        // converting to string
+        for (char[] row : initialMap) {
+            sb.append(Arrays.toString(row)).append(lineSeparator);
+        }
+        String initialMapString = sb.toString();
+        //removing '[' and ','
+        initialMapString = initialMapString.replaceAll("[\\[\\]\\,]", "");
+        return initialMapString;
+    }
     
 
     public Point findStart() {
@@ -108,7 +133,15 @@ public class Map {
         throw new RuntimeException("Starting Point could not be found!");
     }
 
-    //public void reveal(Point p){}
+    public void reveal(Point p) {
+        int i = p.x;
+        int j = p.y;
+
+        if (revealed[i][j] == false) {
+            initialMap[i][j] = map[i][j];
+            revealed[i][j] = true;
+        }
+    }
     public void removeCharAtLoc(Point p){
          map[p.x][p.y] = 'x';
     }
