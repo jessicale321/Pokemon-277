@@ -83,11 +83,11 @@ public Point getLocation() { //return where * is on map
 
 public char goNorth() {
     //loc change 
-    if (getCharAt(locabove).equals('x')) { //invalid
+    if (getCharAt(locabove).equals('x')) { //invalid, returns default value that represents outofbounds, display 'hey u out of bounds'
         return 'x';
     }
     loc = getLocation(above); //update trainer loc
-    return 'n'; //tf is this - ask, do i just return what getCharAt is returning??
+    return 'n'; //tf is this - ask, do i just return what getCharAt is returning?? yes, return the char at that location
 }
 
 public char goSouth() {
