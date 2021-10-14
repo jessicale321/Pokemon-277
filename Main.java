@@ -1,14 +1,21 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello");
         System.out.println("Change in testing?");
-
+        Scanner in = new Scanner(System.in);
+        Scanner poke = new Scanner(System.in);
         System.out.println("Prof. Oak: Hello there new trainer, what is your name? ");
-        //name input and store as trainer name
-        //trainer user = new trainer("testName", Pokemon, Map);
-        System.out.println("Great to meet you, " + trainer.getName());
+        String input = in.nextLine();
+        System.out.println("Great to meet you, " + input + "!");
         System.out.println("Choose your first pokemon:\n1. Charmander\n2. Bulbasaur\n3. Squirtle");
-        //take int input to choose pokemon
+        int first = poke.nextInt();
+        Pokemon n = null;
+        if (first == 2){
+            n = new Bulbasaur();
+        }
+        trainer user = new trainer(input, n, Map);//take int input to choose pokemon
     }
 
     public void mainMenu() {
@@ -24,6 +31,16 @@ public class Main {
     }
 
     public static void trainerAttack(trainer t, Pokemon wild) {
+        System.out.println("A wild " + wild.getName() + " appeared!");
+        Scanner in = new Scanner(System.in);
+        while (wild.getHp() > 0){
+            System.out.println(wild.getBasicMenu());
+            int start = in.nextInt();
+            if (start == 1){
+                System.out.println(wild.);
+            }
+        }
+
     }
 
     public static void store(trainer t) {
