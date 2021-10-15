@@ -51,9 +51,8 @@ public class Map {
 
     public String maptoString(Point p) {
         findStart();
-        Point start = findStart();
-        int x = start.x;
-        int y = start.y;
+        int x = p.x;
+        int y = p.y;
 
         for (int i = 0; i < initialMap.length; i++) {
             for (int j = 0; j < initialMap[i].length; j++) {
