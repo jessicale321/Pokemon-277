@@ -1,8 +1,9 @@
 import java.awt.Point;
 import java.util.ArrayList;
 import java.awt.Point;
+import java.lang.Math;
 
-public class trainer extends Entity{ //FIXME
+public class Trainer extends Entity{ //FIXME
     private int money;
     private int potions;
     private int pokeballs;
@@ -10,15 +11,14 @@ public class trainer extends Entity{ //FIXME
     private Map map;
     private ArrayList<Pokemon> pokemon;
 
-public Trainer(String n, Pokemon p, Map m) { //FIXME, super? //maxHp 25
-    super(n);
-    mHp = 25;
+public Trainer(String n, int mHp, Pokemon p, Map m) { 
+    super(n, mHp);
     money = 1000;
     potions = 2;
     pokeballs = 4;
-    //loc
-    pokemon.add(p); //pokemon
+    pokemon.add(p);
     map = m;
+    loc = map.findStart(); //mmmmm is that right?
 }
 
 public int getMoney() {
@@ -55,7 +55,7 @@ public void receivePotion() {
 public void usePotion(int pokeIndex) { //pokeIndex = loc in arraylist of pokemon the user wants to heal w/ potions
     Pokemon pokemonToHeal = pokemon.get(pokeIndex);
     pokemonToHeal.heal();
-    potions -= pokeIndex; //how will they choose which pokemon to heal
+    potions -= pokeIndex; //how will they choose which pokemon to heal?
 }
 
 public boolean hasPokeball() {
@@ -73,48 +73,65 @@ public void receivePokeball() {
 
 public boolean catchPokemon(Pokemon p) {
     if (pokeballs > 0) {
-        p.getHp();
-        
-        //get hp & maxHp of pokemon
-        //use hp to calc likelihood of it being caught
-        //randomize to determine if successful
-        //add pokemon to user's list of pokemon
-        return true;
+        double percentHp = (p.getHp() / p.getMaxHp()); //what percent health pokemon is at
+        double catchRate = 1 - percentHp; //chance for capturing pokemon
+        double randNum = Math.random(); //generate random value
+        if (randNum <= catchRate) {
+            pokemon.add(p); //pokemon captured
+            return true;
+        }
     }
-    return false; //if unsuccessful capture
+    return false; //unsuccessful capture
 }
 
 public Point getLocation() { //return where * is on map
     return loc; 
 }
 
-public char goNorth() { //check curr pos, make sure desired move is valid, then update loc of trainer
-    //loc change 
-    if (getCharAt(locabove).equals('x')) { //invalid, returns default value that represents outofbounds, display 'hey u out of bounds'
-        return 'x';
-    } //in main, we need to receive an update that says they can't go that way, perhaps pick 'B', when main receives that, it will display error message
-    loc = getLocation(above); //update trainer loc
-    return 'n'; //tf is this - ask, do i just return what getCharAt is returning?? yes, return the char at that location
-} //translate(int, int)
+//go... method notes
 //if their x !> 1, return B
 //in main if receive 'B', display error message
+//in main, we need to receive an update that says they can't go that way, perhaps pick 'B', when main receives that, it will display error message
+//invalid, returns default value that represents outofbounds, display 'hey u out of bounds'
+//check curr pos, make sure desired move is valid, then update loc of trainer
+//loc.translate(int, int) <- how much you need to change the position
+//can use current loc and check if x pos is >= 1, if not, don't allow to move west
+
+//! AM I USING THE RIGHT LOC.X/Y WHEN CHECKING ITS LOC !
+public char goNorth() { 
+    if (loc.x <= 0) {
+        return 'B'; //invalid move to go east if player at right boundary
+    } else {
+        loc.translate(-1, 0); //update loc to move right one space
+        return map.getCharAtLoc(loc); //returns char at new loc
+    }
+} 
 
 public char goSouth() {
-    //loc change
-    return 's';
+    if (loc.x >= 4) {
+        return 'B'; //invalid move to go east if player at right boundary
+    } else {
+        loc.translate(1, 0); //update loc to move right one space
+        return map.getCharAtLoc(loc); //returns char at new loc
+    }
 }
 
 public char goEast() {
-    return 'e';
+    if (loc.y >= 4) {
+        return 'B'; //invalid move to go east if player at right boundary
+    } else {
+        loc.translate(0, 1); //update loc to move right one space
+        return map.getCharAtLoc(loc); //returns char at new loc
+    }
 }
 
-//loc.translate(int, int) <- how much you need to change the position
-//either +1 or -1 depending on their direction
-//return character of the new loc they're going to
-//before attempting loc.translate, check if move is valid
-//can use current loc and check if x pos is >= 1, if not, don't allow to move west
 public char goWest() {
-    return 'w';
+    if (loc.y <= 0) {
+        return 'B'; //invalid move to go east if player at right boundary
+    } else {
+        loc.translate(0, -1); //update loc to move right one space
+        return map.getCharAtLoc(loc); //returns char at new loc
+    }
 }
 
 public int getNumPokemon() {
@@ -122,19 +139,25 @@ public int getNumPokemon() {
 }
 
 public void healAllPokemon() {
-    int x = 1;
+    for (Pokemon i: pokemon) {
+        i.heal();
+    }
 }
 
-public Pokemon getPokemon(int index) { //rip get help, how to deal with abstract pokemon class - or not
+public Pokemon getPokemon(int index) { 
     return pokemon.get(index);
 }
 
 public String getPokemonList() { //use in main when they come across wild pokemon, if they choose to fight, they will choose pokemon from this list
-    return "hello world"; //ask "what pokemon you want to use"
+    String pokemonList = "";
+    for (Pokemon i: pokemon) {
+        pokemonList += (i + ". " + i.getName() + " HP: " + i.getHp() + "/" + i.getMaxHp()); //how to do newline
+    }
+    return pokemonList; //ask "what pokemon you want to use"
 }
 
 public String toString() {
-    return name + " HP: " + "\nMoney: " + "\nPotions: " + "\nPoke Balls: ";
+    return getName() + " HP: " + getHp() + "/" + getMaxHp() + "\nMoney: " + money + "\nPotions: " + potions + "\nPoke Balls: " + pokeballs;
 }
 
 }
