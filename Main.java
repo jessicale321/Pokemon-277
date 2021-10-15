@@ -43,7 +43,32 @@ public class Main {
 
     }
 
-    public static void store(trainer t) {
-
+    public static void store(Trainer t) {
+       boolean quit = false;       
+       int money =  t.getMoney();
+        
+        do {
+            System.out.println("Hello! What can I help you with?");
+            System.out.println("1. Buy Potions - $5 ");
+            System.out.println("2. Buy Poke Balls - $3");
+            System.out.println("3. Exit");
+            int choice = CheckInput.getIntRange(1, 3);
+            switch (choice) {
+                   case 1:
+                       System.out.println("Here's your potion.");
+                       money-=5;
+                       break;
+                   case 2:
+                       System.out.println("Here's your Poke Balls");
+                       money-=3;
+                       break;
+                   case 3:
+                       System.out.println("Thank you, come again soon!");
+                       quit = true;
+                       break;
+                   default:
+                       break;
+               }
+           } while (!false);              
     }
 }
