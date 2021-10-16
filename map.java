@@ -16,10 +16,10 @@ public class Map {
                  revealed[i][j] = false;
     }
 
-    public void loadMap() {
+    public void loadMap(int mapNum) {
         ArrayList<ArrayList<Character>> collection = new ArrayList<ArrayList<Character>>();
         try {
-            String area = "Area1.txt";
+            String area = "Area"+mapNum+".txt";
             Scanner s = new Scanner(new File(area));
             while (s.hasNextLine()) {
                 String data = s.nextLine(); //reading data line by line from file
