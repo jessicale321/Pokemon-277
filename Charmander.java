@@ -1,11 +1,11 @@
-class Charmander extends Pokemon implements Fire_Interface {
+public class Charmander extends Pokemon implements Fire_Interface {
     
     public Charmander() {
         super("Charmander");
     }
 
     public String getSpecialMenu() {
-        return "hello";
+        return specialMenu;
     }
 
     public int getNumSpecialMenuItems() {
@@ -24,17 +24,69 @@ class Charmander extends Pokemon implements Fire_Interface {
         else if (move == 3) {
             return p.getName() + " used Fire Punch!";
         }
+        return p.getName() + " missed!";
     }
 
+    @Override
     public String ember(Pokemon p) {
-        return "ember";
+        String atk = "";
+        if (p.getType() == 0) {
+            int d = (int)((int)(Math.random() * 3) * battleTable[getType()][0]);
+            p.takeDamage(d);
+            atk = p.getName() + " took " + d + "damage.";
+        }
+        else if (p.getType() == 1) {
+            int d = (int)((int)(Math.random() * 3) * battleTable[getType()][1]);
+            p.takeDamage(d);
+            atk = p.getName() + " took " + d + "damage.";
+        }
+        else if (p.getType() == 2) {
+            int d = (int)((int)(Math.random() * 3) * battleTable[getType()][1]);
+            p.takeDamage(d);
+            atk = p.getName() + " took " + d + "damage.";
+        }
+        return atk;
     }
 
+    @Override
     public String fireBlast(Pokemon p) {
-        return "fireBlast";
+        String atk = "";
+        if (p.getType() == 0) {
+            int d = (int)((int)((Math.random() * 4) + 1) * battleTable[getType()][0]);
+            p.takeDamage(d);
+            atk = p.getName() + " took " + d + "damage.";
+        }
+        else if (p.getType() == 1) {
+            int d = (int)((int)((Math.random() * 4) + 1) * battleTable[getType()][1]);
+            p.takeDamage(d);
+            atk = p.getName() + " took " + d + "damage.";
+        }
+        else if (p.getType() == 2) {
+            int d = (int)((int)((Math.random() * 4) + 1) * battleTable[getType()][2]);
+            p.takeDamage(d);
+            atk = p.getName() + " took " + d + "damage.";
+        }
+        return atk;
     }
 
+    @Override
     public String firePunch(Pokemon p) {
-        return "firePunch";
+        String atk = "";
+        if (p.getType() == 0) {
+            int d = (int)((int)((Math.random() * 3) + 1) * battleTable[getType()][0]);
+            p.takeDamage(d);
+            atk = p.getName() + " took " + d + "damage.";
+        }
+        else if (p.getType() == 1) {
+            int d = (int)((int)((Math.random() * 3) + 1) * battleTable[getType()][1]);
+            p.takeDamage(d);
+            atk = p.getName() + " took " + d + "damage.";
+        }
+        else if (p.getType() == 2) {
+            int d = (int)((int)((Math.random() * 3) + 1) * battleTable[getType()][2]);
+            p.takeDamage(d);
+            atk = p.getName() + " took " + d + "damage.";
+        }
+        return atk;
     }
 }
