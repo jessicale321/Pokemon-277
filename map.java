@@ -23,8 +23,13 @@ public class Map {
             Scanner s = new Scanner(new File(area));
             while (s.hasNextLine()) {
                 String data = s.nextLine(); //reading data line by line from file
-                data = data.replaceAll("\\s", "");
-                collection.add(toChar(data));
+                data = data.replaceAll("\\s", ""); 
+                ArrayList<Character> listOfchars = new ArrayList<>();
+                ArrayList<Character> lists = new ArrayList<>();
+                for (int i = 0; i < data.length(); i++) {
+                    listOfchars.add(data.charAt(i));
+                }
+                collection.add(listOfchars);
             }
         }catch (FileNotFoundException ex) {
             System.out.println("FILE NOT FOUND");
@@ -34,13 +39,6 @@ public class Map {
                 map[row][col] = collection.get(row).get(col);
             }
         }            
-    }
-    public ArrayList<Character> toChar(String data) {
-        ArrayList<Character> listOfchars = new ArrayList<>();
-        for (int i = 0; i < data.length(); i++) {
-            listOfchars.add(data.charAt(i));
-        }
-        return listOfchars;
     }
     public char getCharAtLoc(Point p){
         if (p.x <0 || p.y < 0 || p.x > 5 || p.y > 5 ){
