@@ -25,7 +25,6 @@ public class Map {
                 String data = s.nextLine(); //reading data line by line from file
                 data = data.replaceAll("\\s", ""); 
                 ArrayList<Character> listOfchars = new ArrayList<>();
-                ArrayList<Character> lists = new ArrayList<>();
                 for (int i = 0; i < data.length(); i++) {
                     listOfchars.add(data.charAt(i));
                 }
