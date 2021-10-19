@@ -16,19 +16,39 @@ public class Main {
         if (first == 2){
             n = new Bulbasaur();
         }
-        Trainer user = new Trainer(input, n, Map);//take int input to choose pokemon
+        Trainer user = new Trainer(input, 25, n, Map);//take int input to choose pokemon
     }
 
-    public void mainMenu() {
+    public int mainMenu() {
+        Scanner in = new Scanner(System.in);
         System.out.println("Main Menu");
-        System.out.println("1. Go North\n2. Go South");
+        System.out.println("1. Go North\n2. Go South\n3. Go East\n4. Go West\n5. Quit");
+        int menuSelect = Integer.parseInt(in.nextLine());
+        return menuSelect;
     }
 
-    public int chooseRandPokemon() {
+    public static Pokemon chooseRandPokemon() {
         int random = (int)(Math.random() * 6 + 1);
-        //construct pokemon based on random
-        //return pokemon?? or random?
-        return random;
+        Pokemon randPokemon;
+        if (random == 1) {
+            randPokemon = new Charmander();
+        }
+        else if (random == 2) {
+            randPokemon = new Squirtle();
+        }
+        else if (random == 3) {
+            randPokemon = new Bulbasaur();
+        }
+        else if (random == 4) {
+            randPokemon = new Ponyta();
+        }
+        else if (random == 5) {
+            randPokemon = new Staryu();
+        }
+        else if (random == 6) {
+            randPokemon = new Oddish();
+        }
+        return randPokemon;
     }
 
     public static void trainerAttack(Trainer t, Pokemon wild) {
@@ -40,6 +60,7 @@ public class Main {
             if (start == 1){
                 System.out.println(wild);
             }
+        }
     }
 
     public static void store(Trainer t) {
@@ -71,6 +92,6 @@ public class Main {
             } while (!false);              
      }
 
-    }
 }
+
 
