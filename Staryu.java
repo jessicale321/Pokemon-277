@@ -1,7 +1,7 @@
-abstract class Stayru extends Pokemon {
+class Staryu extends Pokemon implements Water_Interface {
 
-    public Stayru() {
-        super("Stayru");
+    public Staryu() {
+        super("Staryu");
         //type = 1;
     }
 
