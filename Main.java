@@ -7,8 +7,8 @@ public class Main {
         Scanner in = new Scanner(System.in);
         Scanner poke = new Scanner(System.in);
         System.out.println("Prof. Oak: Hello there new trainer, what is your name? ");
-        String input = in.nextLine();
-        System.out.println("Great to meet you, " + input + "!");
+        String name = in.nextLine();
+        System.out.println("Great to meet you, " + name + "!");
 
         System.out.println("Choose your first pokemon:\n1. Charmander\n2. Bulbasaur\n3. Squirtle");
         int first = poke.nextInt();
@@ -16,7 +16,7 @@ public class Main {
         if (first == 2){
             n = new Bulbasaur();
         }
-        Trainer user = new Trainer(input, 25, n, Map);//take int input to choose pokemon
+        Trainer user = new Trainer(name, 25, n, Map);//take int input to choose pokemon
     }
 
     public int mainMenu() {
@@ -28,7 +28,7 @@ public class Main {
     }
 
     public static Pokemon chooseRandPokemon() {
-        int random = (int)(Math.random() * 6 + 1);
+        int random = (int)((Math.random() * 6) + 1);
         Pokemon randPokemon;
         if (random == 1) {
             randPokemon = new Charmander();
@@ -45,7 +45,7 @@ public class Main {
         else if (random == 5) {
             randPokemon = new Staryu();
         }
-        else if (random == 6) {
+        else {
             randPokemon = new Oddish();
         }
         return randPokemon;
