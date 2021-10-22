@@ -1,21 +1,28 @@
+/**
+* Interface for Fire Pokemon
+* @author Jessica Le
+*/
 public interface Fire_Interface {
 
     public String specialMenu = "1. Ember\n2. Fire Blast\n3. Fire Punch";
     
-    //value that gets returned from getNumSpecialMenuItems() method
-    //use with CheckInput.getIntRange to validate user's input
     public int numSpecialMenuItems = 3;
     
+    /**
+    * method that need to be overriden by Pokemon with a fire type
+    * @param p - Pokemon being damaged
+    */
+    public String ember(Pokemon p);
 
-    public String ember(Pokemon p) {
-        return "ember";
-    }
+    /**
+    * method that need to be overriden by Pokemon with a fire type
+    * @param p - Pokemon being damaged
+    */
+    public String fireBlast(Pokemon p);
 
-    public String fireBlast(Pokemon p) {
-        return "fireBlast";
-    }
-
-    public String firePunch(Pokemon p) {
-        return "firePunch";
-    }
+    /**
+    * method that need to be overriden by Pokemon with a fire type
+    * @param p - Pokemon being damaged
+    */
+    public String firePunch(Pokemon p);
 }
