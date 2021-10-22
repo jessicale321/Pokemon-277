@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class CheckInput {
 	
-	/**
+	  /**
 	 * Checks if the inputted value is an integer.
 	 * @return the valid input.
 	 */
@@ -46,9 +46,13 @@ public class CheckInput {
 		while( !valid ) {
 			if( in.hasNextInt() ) {
 				input = in.nextInt();
-				if( input <= high && input >= low ) {
+				if( input <= high && input >= low) {
 					valid = true;
-				} else {
+				}
+        else if(input == high && high == low){
+          valid = true;
+        } 
+        else {
 					System.out.println( "Invalid Range." );
 				}
 			} else {
